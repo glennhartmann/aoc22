@@ -1,6 +1,9 @@
 package common
 
-import "constraints"
+import (
+	"constraints"
+	"strings"
+)
 
 type Real interface {
 	constraints.Integer | constraints.Float
@@ -40,4 +43,26 @@ func Max[T Real](a, b T, rest ...T) T {
 
 func Min[T Real](a, b T, rest ...T) T {
 	return SliceMin(append(rest, a, b))
+}
+
+func Fjoin[T any](elems []T, sep string, str func(e T) string) string {
+	var sb strings.Builder
+
+	first := true
+	for _, e := range elems {
+		if !first {
+			sb.WriteString(sep)
+		}
+		first = false
+		sb.WriteString(str(e))
+	}
+
+	return sb.String()
+}
+
+func Abs[T Real](n T) T {
+	if n < 0 {
+		return -n
+	}
+	return n
 }
