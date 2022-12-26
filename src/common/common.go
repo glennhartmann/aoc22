@@ -9,6 +9,18 @@ type Real interface {
 	constraints.Integer | constraints.Float
 }
 
+type ConvenientLenable[T any] interface {
+	~string | ~[]T
+}
+
+// maps make this really annoying because they require
+// a second type constraint which can't be automatically
+// inferred if you want to use one of the non-map
+// lenable types.
+type Lenable[T any, C comparable] interface {
+	ConvenientLenable[T] | ~map[C]T
+}
+
 func SliceSum[T Real](slice []T) T {
 	var sum T
 	for _, n := range slice {
@@ -17,19 +29,19 @@ func SliceSum[T Real](slice []T) T {
 	return sum
 }
 
-func SliceMax[T Real](slice []T) T {
+func SliceMax[T constraints.Ordered](slice []T) T {
 	return FsliceMax(slice, func(e T) T { return e })
 }
 
-func SliceMin[T Real](slice []T) T {
+func SliceMin[T constraints.Ordered](slice []T) T {
 	return FsliceMin(slice, func(e T) T { return e })
 }
 
-func Max[T Real](a, b T, rest ...T) T {
+func Max[T constraints.Ordered](a, b T, rest ...T) T {
 	return SliceMax(append(rest, a, b))
 }
 
-func Min[T Real](a, b T, rest ...T) T {
+func Min[T constraints.Ordered](a, b T, rest ...T) T {
 	return SliceMin(append(rest, a, b))
 }
 
@@ -55,7 +67,7 @@ func Abs[T Real](n T) T {
 	return n
 }
 
-func FsliceMax[T any, R Real](slice []T, f func(e T) R) R {
+func FsliceMax[T any, R constraints.Ordered](slice []T, f func(e T) R) R {
 	var max R
 	for i, e := range slice {
 		n := f(e)
@@ -66,7 +78,7 @@ func FsliceMax[T any, R Real](slice []T, f func(e T) R) R {
 	return max
 }
 
-func FsliceMin[T any, R Real](slice []T, f func(e T) R) R {
+func FsliceMin[T any, R constraints.Ordered](slice []T, f func(e T) R) R {
 	var min R
 	for i, e := range slice {
 		n := f(e)
@@ -77,16 +89,16 @@ func FsliceMin[T any, R Real](slice []T, f func(e T) R) R {
 	return min
 }
 
-func Fmax[T any, R Real](f func(e T) R, a, b T, rest ...T) R {
+func Fmax[T any, R constraints.Ordered](f func(e T) R, a, b T, rest ...T) R {
 	return FsliceMax(append(rest, a, b), f)
 }
 
-func Fmin[T any, R Real](f func(e T) R, a, b T, rest ...T) R {
+func Fmin[T any, R constraints.Ordered](f func(e T) R, a, b T, rest ...T) R {
 	return FsliceMin(append(rest, a, b), f)
 }
 
-func Longest(s []string) int {
-	return FsliceMax(s, func(e string) int { return len(e) })
+func Longest[L ConvenientLenable[any]](s []L) int {
+	return FsliceMax(s, func(e L) int { return len(e) })
 }
 
 func Padding(p string, r int /* repititions */) string {
