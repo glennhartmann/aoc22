@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"io"
 	"log"
 	"os"
@@ -198,7 +197,7 @@ outer:
 
 		log.Printf("After round %d, the monkeys are holding items with these worry levels:", round)
 		for _, m := range monkeys {
-			log.Printf("Monkey %d: %s", m.index, intQueueJoin(m.items, ", "))
+			log.Printf("Monkey %d: %s", m.index, m.items.Join(", "))
 		}
 		log.Printf("")
 	}
@@ -230,24 +229,4 @@ func maybeLog(msg string, args ...interface{}) {
 	if logVerbose {
 		log.Printf(msg, args...)
 	}
-}
-
-func intQueueJoin(iq *queue.Queue[int], sep string) string {
-	if iq.Size() == 0 {
-		return ""
-	}
-
-	ints, err := iq.PeekN(iq.Size())
-	if err != nil {
-		panic("bad queue")
-	}
-
-	var sb strings.Builder
-	sb.WriteString(fmt.Sprintf("%d", ints[0]))
-
-	for _, i := range ints[1:] {
-		sb.WriteString(fmt.Sprintf("%s%d", sep, i))
-	}
-
-	return sb.String()
 }
