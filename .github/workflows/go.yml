@@ -1,0 +1,136 @@
+# This workflow will build a golang project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
+
+name: Go
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.19
+
+    - name: Build 01_1
+      run: go build -v github.com/glennhartmann/aoc22/src/01_1
+
+    - name: Build 01_2
+      run: go build -v github.com/glennhartmann/aoc22/src/01_2
+
+    - name: Build 02_1
+      run: go build -v github.com/glennhartmann/aoc22/src/02_1
+
+    - name: Build 02_2
+      run: go build -v github.com/glennhartmann/aoc22/src/02_2
+
+    - name: Build 03_1
+      run: go build -v github.com/glennhartmann/aoc22/src/03_1
+
+    - name: Build 03_2
+      run: go build -v github.com/glennhartmann/aoc22/src/03_2
+
+    - name: Build 04_1
+      run: go build -v github.com/glennhartmann/aoc22/src/04_1
+
+    - name: Build 04_2
+      run: go build -v github.com/glennhartmann/aoc22/src/04_2
+
+    - name: Build 05_1
+      run: go build -v github.com/glennhartmann/aoc22/src/05_1
+
+    - name: Build 05_2
+      run: go build -v github.com/glennhartmann/aoc22/src/05_2
+
+    - name: Build 06_1
+      run: go build -v github.com/glennhartmann/aoc22/src/06_1
+
+    - name: Build 06_2
+      run: go build -v github.com/glennhartmann/aoc22/src/06_2
+
+    - name: Build 07_1
+      run: go build -v github.com/glennhartmann/aoc22/src/07_1
+
+    - name: Build 07_2
+      run: go build -v github.com/glennhartmann/aoc22/src/07_2
+
+    - name: Build 08_1
+      run: go build -v github.com/glennhartmann/aoc22/src/08_1
+
+    - name: Build 08_2
+      run: go build -v github.com/glennhartmann/aoc22/src/08_2
+
+    - name: Build 09_1
+      run: go build -v github.com/glennhartmann/aoc22/src/09_1
+
+    - name: Build 09_2
+      run: go build -v github.com/glennhartmann/aoc22/src/09_2
+
+    - name: Build 10_1
+      run: go build -v github.com/glennhartmann/aoc22/src/10_1
+
+    - name: Build 10_2
+      run: go build -v github.com/glennhartmann/aoc22/src/10_2
+
+    - name: Build 11_1
+      run: go build -v github.com/glennhartmann/aoc22/src/11_1
+
+    - name: Build 13_1
+      run: go build -v github.com/glennhartmann/aoc22/src/13_1
+
+    - name: Build 13_2
+      run: go build -v github.com/glennhartmann/aoc22/src/13_2
+
+    - name: Build 15_1
+      run: go build -v github.com/glennhartmann/aoc22/src/15_1
+
+    - name: Build 16_1
+      run: go build -v github.com/glennhartmann/aoc22/src/16_1
+
+    - name: Build 17_1
+      run: go build -v github.com/glennhartmann/aoc22/src/17_1
+
+    - name: Build 18_1
+      run: go build -v github.com/glennhartmann/aoc22/src/18_1
+
+    - name: Build 20_1
+      run: go build -v github.com/glennhartmann/aoc22/src/20_1
+
+    - name: Build 20_2
+      run: go build -v github.com/glennhartmann/aoc22/src/20_2
+
+    - name: Build 21_1
+      run: go build -v github.com/glennhartmann/aoc22/src/21_1
+
+    - name: Build 25_1
+      run: go build -v github.com/glennhartmann/aoc22/src/25_1
+
+    - name: Build common
+      run: go build -v github.com/glennhartmann/aoc22/src/common
+
+    - name: Test common
+      run: go test -v github.com/glennhartmann/aoc22/src/common
+
+    - name: Build doubly_linked_list
+      run: go build -v github.com/glennhartmann/aoc22/src/doubly_linked_list
+
+    - name: Build heap
+      run: go build -v github.com/glennhartmann/aoc22/src/heap
+
+    - name: Build internal/stackqueuebase
+      run: go build -v github.com/glennhartmann/aoc22/src/internal/stackqueuebase
+
+    - name: Build queue
+      run: go build -v github.com/glennhartmann/aoc22/src/queue
+
+    - name: Build stack
+      run: go build -v github.com/glennhartmann/aoc22/src/stack
