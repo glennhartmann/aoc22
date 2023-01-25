@@ -3,8 +3,9 @@
 package common
 
 import (
-	"constraints"
 	"strings"
+
+	"golang.org/x/exp/constraints"
 )
 
 // Real is all non-complex number types.
