@@ -25,7 +25,7 @@ func main() {
 		lines = append(lines, strings.TrimSpace(s))
 	}
 
-	longest := common.Longest(lines)
+	longest := common.Longest[string](lines)
 	var total int64
 	for _, s := range lines {
 		i := decode(s)
