@@ -68,7 +68,7 @@ outer:
 		log.Printf("monkey %d:", m.index)
 		for i := readerState(0); i < numStates; i++ {
 			if first {
-				// first money doesn't have a preceeding blank line
+				// first money doesn't have a preceding blank line
 				first = false
 				continue
 			}
