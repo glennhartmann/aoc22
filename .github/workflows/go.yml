@@ -135,5 +135,11 @@ jobs:
     - name: Build queue
       run: go build -v github.com/glennhartmann/aoc22/src/queue
 
+    - name: Test queue
+      run: go test -v github.com/glennhartmann/aoc22/src/queue
+
     - name: Build stack
       run: go build -v github.com/glennhartmann/aoc22/src/stack
+
+    - name: Test stack
+      run: go test -v github.com/glennhartmann/aoc22/src/stack
