@@ -18,10 +18,6 @@ func NewBaseN[T any](size int, h SQ[T]) *Base[T] {
 	return &Base[T]{make([]T, 0, size), h}
 }
 
-func (b *Base[T]) SetHelper(sq SQ[T]) {
-	b.h = sq
-}
-
 func (b *Base[T]) Size() int {
 	return len(b.impl)
 }
@@ -91,17 +87,17 @@ func (b *Base[T]) Join(sep string) string {
 		return ""
 	}
 
-	ints, err := b.PeekN(b.Size())
+	vals, err := b.PeekN(b.Size())
 	if err != nil {
 		panic(fmt.Sprintf("bad %s: Size() = %d, but PeekN(%d) = %+v", b.h.NameLower(), b.Size(), b.Size(), err))
 	}
 
 	var sb strings.Builder
-	sb.WriteString(fmt.Sprintf("%d", ints[0]))
+	sb.WriteString(fmt.Sprintf("%v", vals[0]))
 
 	// TODO: add head and tail labels
-	for _, i := range ints[1:] {
-		sb.WriteString(fmt.Sprintf("%s%d", sep, i))
+	for _, v := range vals[1:] {
+		sb.WriteString(fmt.Sprintf("%s%v", sep, v))
 	}
 
 	return sb.String()
