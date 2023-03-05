@@ -129,6 +129,9 @@ jobs:
     - name: Build internal/stackqueuebase
       run: go build -v github.com/glennhartmann/aoc22/src/internal/stackqueuebase
 
+    - name: Test internal/stackqueuebase
+      run: go test -v github.com/glennhartmann/aoc22/src/internal/stackqueuebase
+
     - name: Build queue
       run: go build -v github.com/glennhartmann/aoc22/src/queue
 
