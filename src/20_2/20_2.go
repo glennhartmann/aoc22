@@ -72,14 +72,14 @@ func main() {
 				panic(err)
 			}
 
-			prv := n.Prev()
-			if prv == nil {
-				prv = nodeList.Tail()
-			}
-			nxt := n.Next()
-			if nxt == nil {
-				nxt = nodeList.Head()
-			}
+			//prv := n.Prev()
+			//if prv == nil {
+			//	prv = nodeList.Tail()
+			//}
+			//nxt := n.Next()
+			//if nxt == nil {
+			//	nxt = nodeList.Head()
+			//}
 
 			//log.Printf("%d moves between %d and %d:", n.Val(), prv.Val(), nxt.Val())
 			//log.Print(nodeList.String())
