@@ -465,7 +465,7 @@ func TestLongest(t *testing.T) {
 		{
 			name:       "multiple",
 			strs:       []string{"a", "", "asdfsadf", "4"},
-			slices:     [][]int{[]int{1}, nil, []int{}, []int{1, 2, 3, 4}, []int{5}},
+			slices:     [][]int{{1}, nil, {}, {1, 2, 3, 4}, {5}},
 			wantStrs:   8,
 			wantSlices: 4,
 		},

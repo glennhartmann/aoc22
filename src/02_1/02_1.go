@@ -61,9 +61,9 @@ var outcomeScores = []int64{win: 6, tie: 3, lose: 0}
 func (r result) score() int64 { return outcomeScores[r] }
 
 var outcomes = [][]result{
-	rock:     []result{rock: tie, paper: lose, scissors: win},
-	paper:    []result{rock: win, paper: tie, scissors: lose},
-	scissors: []result{rock: lose, paper: win, scissors: tie},
+	rock:     {rock: tie, paper: lose, scissors: win},
+	paper:    {rock: win, paper: tie, scissors: lose},
+	scissors: {rock: lose, paper: win, scissors: tie},
 }
 
 func (r rps) outcome(s rps) result { return outcomes[r][s] }

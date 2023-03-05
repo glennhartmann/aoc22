@@ -15,27 +15,27 @@ type shape [][]byte
 
 // 0 is bottom
 var shapes = []shape{
-	shape{
+	{
 		[]byte{'@', '@', '@', '@'},
 	},
-	shape{
+	{
 		[]byte{'.', '@', '.'},
 		[]byte{'@', '@', '@'},
 		[]byte{'.', '@', '.'},
 	},
-	shape{
+	{
 		// upside down, visually
 		[]byte{'@', '@', '@'},
 		[]byte{'.', '.', '@'},
 		[]byte{'.', '.', '@'},
 	},
-	shape{
+	{
 		[]byte{'@'},
 		[]byte{'@'},
 		[]byte{'@'},
 		[]byte{'@'},
 	},
-	shape{
+	{
 		[]byte{'@', '@'},
 		[]byte{'@', '@'},
 	},

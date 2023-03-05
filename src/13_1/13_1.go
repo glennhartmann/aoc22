@@ -84,11 +84,11 @@ func (left *listlist) cmpListInternal(right *listlist, indent string) int {
 func (left *listlist) cmpMixedInternal(right *listlist, indent string) int {
 	if left.ll == nil {
 		log.Printf("%s- Mixed types; convert left to [%d] and retry comparison", indent, left.val)
-		left.ll = []*listlist{&listlist{val: left.val}}
+		left.ll = []*listlist{{val: left.val}}
 		return left.cmpInternal(right, indent+"  ")
 	}
 	log.Printf("%s- Mixed types; convert right to [%d] and retry comparison", indent, right.val)
-	right.ll = []*listlist{&listlist{val: right.val}}
+	right.ll = []*listlist{{val: right.val}}
 	return left.cmpInternal(right, indent+"  ")
 }
 
