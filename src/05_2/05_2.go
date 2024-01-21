@@ -9,7 +9,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/glennhartmann/aoc22/src/stack"
+	"github.com/glennhartmann/aoclib/stack"
 )
 
 var stackRx = regexp.MustCompile(`^\s*\[([A-Z])\]`)

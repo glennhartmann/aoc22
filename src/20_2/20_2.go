@@ -5,8 +5,8 @@ import (
 	"io"
 	"log"
 
-	"github.com/glennhartmann/aoc22/src/common"
-	dll "github.com/glennhartmann/aoc22/src/doubly_linked_list"
+	"github.com/glennhartmann/aoclib/common"
+	dll "github.com/glennhartmann/aoclib/doubly_linked_list"
 )
 
 const key = 811589153

@@ -8,7 +8,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/glennhartmann/aoc22/src/common"
+	"github.com/glennhartmann/aoclib/common"
 )
 
 func main() {

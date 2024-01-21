@@ -12,7 +12,7 @@ import (
 
 	"golang.org/x/exp/slices"
 
-	"github.com/glennhartmann/aoc22/src/queue"
+	"github.com/glennhartmann/aoclib/queue"
 )
 
 type readerState int

@@ -4,7 +4,8 @@ import (
 	"fmt"
 
 	"github.com/glennhartmann/aoc22/src/01_1/getcalorieses"
-	"github.com/glennhartmann/aoc22/src/heap"
+
+	"github.com/glennhartmann/aoclib/heap"
 )
 
 func main() {

@@ -9,7 +9,7 @@ import (
 	"regexp"
 	"strconv"
 
-	"github.com/glennhartmann/aoc22/src/common"
+	"github.com/glennhartmann/aoclib/common"
 )
 
 type monkey struct {

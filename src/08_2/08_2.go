@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/glennhartmann/aoc22/src/common"
+	"github.com/glennhartmann/aoclib/common"
 )
 
 type cell struct {
